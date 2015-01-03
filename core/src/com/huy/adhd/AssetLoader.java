@@ -7,10 +7,14 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 public class AssetLoader {
 
 	// IMAGES
-	private static Texture menuButton;
+	private static Texture menuButton1;
+	private static Texture menuButton2;
 	// drag&drop
 	private static Texture square;
 	private static Texture square2;
+	// collect the square
+	private static Texture smallSquare;
+	private static Texture hole;
 
 	// FONTS
 	private static FreeTypeFontGenerator TIMES_SQ;
@@ -21,9 +25,14 @@ public class AssetLoader {
 	}
 
 	private static void loadImages() {
-		menuButton = new Texture(Gdx.files.internal("images/menuButton.png"));
+		menuButton1 = new Texture(Gdx.files.internal("images/menuButton.png"));
+		menuButton2 = new Texture(Gdx.files.internal("images/menuButton2.png"));
+		// drag and drop
 		square = new Texture(Gdx.files.internal("images/square.png"));
 		square2 = new Texture(Gdx.files.internal("images/square2.png"));
+		// collect the square
+		smallSquare = new Texture(Gdx.files.internal("images/smallWhiteSquare.png"));
+		hole = new Texture(Gdx.files.internal("images/hole.png"));
 	}
 
 	private static void loadFonts() {
@@ -31,8 +40,12 @@ public class AssetLoader {
 				Gdx.files.internal("fonts/TIMES_SQ.TTF"));
 	}
 
-	public static Texture getMenuButton() {
-		return menuButton;
+	public static Texture getMenuButton1() {
+		return menuButton1;
+	}
+	
+	public static Texture getMenuButton2(){
+		return menuButton2;
 	}
 
 	public static Texture getSquare() {
@@ -43,7 +56,15 @@ public class AssetLoader {
 		return square2;
 	}
 	
-	public static FreeTypeFontGenerator getTIMES_SQFont (){
+	public static Texture getSmallSquare(){
+		return smallSquare;
+	}
+	
+	public static Texture getHole(){
+		return hole;
+	}
+
+	public static FreeTypeFontGenerator getTIMES_SQFont() {
 		return TIMES_SQ;
 	}
 }

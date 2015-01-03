@@ -1,10 +1,12 @@
 package com.huy.adhd;
 
+import com.adhd.games.CollectTheSquare;
 import com.adhd.games.DragAndDrop;
 import com.adhd.screens.GameSelectionScreen;
 import com.adhd.screens.StartScreen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 
 public class GameWorld {
 
@@ -15,15 +17,22 @@ public class GameWorld {
 
 	private static Stage currentScreen;
 	private static Stage dragAndDrop;
-
+	private static Stage collectTheSquare;
+	
+	private static FitViewport viewport;
+	
 	public GameWorld() {
+		
+		//VIEWPORT 
+		viewport = new FitViewport(800, 600);
 	
 		//SCREENS
-		startScreen = new StartScreen();
-		selectionScreen = new GameSelectionScreen();
+		startScreen = new StartScreen(viewport);
+		selectionScreen = new GameSelectionScreen(viewport);
 		
 		//GAMES
-		dragAndDrop = new DragAndDrop();
+		dragAndDrop = new DragAndDrop(viewport);
+		collectTheSquare = new CollectTheSquare(viewport);
 
 		currentScreen = startScreen;
 		Gdx.input.setInputProcessor(currentScreen);
@@ -50,4 +59,13 @@ public class GameWorld {
 	public static Stage getDragAndDropGame(){
 		return dragAndDrop;
 	}
+	
+	public static Stage getCollectTheSquareGame(){
+		return collectTheSquare;
+	}
+	
+	public static FitViewport getViewport(){
+		return viewport;
+	}
+
 }

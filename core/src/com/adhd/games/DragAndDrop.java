@@ -18,14 +18,14 @@ public class DragAndDrop extends Stage {
 	private boolean hasFinished = false;
 	private StopWatch stopWatch;
 
-	public DragAndDrop() {
-		super(new FitViewport(800, 600));
+	public DragAndDrop(FitViewport viewport) {
+		super(viewport);
 
 		title = new Text("Drag & Drop", 250, 550, 50, 1, 1, 1, 1,
 				AssetLoader.getTIMES_SQFont());
 		this.addActor(title);
-		hole = new Square(600, 150, 150, 150, AssetLoader.getSquare2(), true);
-		square = new Square(100, 150, 150, 150, AssetLoader.getSquare(), true);
+		hole = new Square(600, 150, 150, 150, AssetLoader.getSquare2());
+		square = new Square(100, 150, 150, 150, AssetLoader.getSquare());
 		stopWatch = new StopWatch(250, 480, 50);
 
 		this.addActor(hole);

@@ -1,25 +1,23 @@
 package com.huy.objects;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.huy.adhd.AssetLoader;
 
 public class MenuButton extends Shape {
 
 	private Text text;
-
-	public MenuButton(float x, float y, String text) {
-		super(x, y, 400, 90, AssetLoader.getMenuButton(), true);
-		this.text = new Text(text, x + 70, y +70, 60, 0, 0, 0, 1);
-	}
-
-	public MenuButton(float x, float y, float width, float height, String text) {
-		super(x, y, width, height, AssetLoader.getMenuButton(), true);
-		this.text = new Text(text, x + 70, y + 70, 60, 0, 0, 0, 1);
+	
+	public MenuButton(float x, float y, float width, float height, String text,
+			float offsetX, float offsetY, int textSize, float red, float green,
+			float blue, float alpha, Texture texture) {
+		super(x, y, width, height, texture, true);
+		this.text = new Text(text, x + offsetX, y + offsetY, textSize, red,
+				green, blue, alpha);
 	}
 
 	@Override
 	public void draw(Batch batch, float alpha) {
-		super.draw(batch, alpha);
+		batch.draw(texture, this.getX(), this.getY(), this.getWidth(), this.getHeight());
 		text.draw(batch, alpha);
 	}
 }

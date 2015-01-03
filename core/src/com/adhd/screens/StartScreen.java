@@ -8,6 +8,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.huy.adhd.AssetLoader;
 import com.huy.adhd.GameWorld;
 import com.huy.objects.MenuButton;
+import com.huy.objects.MenuButton1;
 import com.huy.objects.Text;
 
 public class StartScreen extends Stage {
@@ -16,13 +17,13 @@ public class StartScreen extends Stage {
 	private MenuButton exitButton;
 	private Text title;
 
-	public StartScreen() {
-		super(new FitViewport(800, 600));
+	public StartScreen(FitViewport viewport) {
+		super(viewport);
 
-		startButton = new MenuButton(200, 220, "START");
+		startButton = new MenuButton1(200, 220, "START");
 		startButton.setTouchable(Touchable.enabled);
 
-		exitButton = new MenuButton(200, 100, "EXIT");
+		exitButton = new MenuButton1(200, 100, "EXIT");
 		exitButton.setTouchable(Touchable.enabled);
 
 		title = new Text("ADHD Games", 180, 400, 100, 1, 1, 1, 1,

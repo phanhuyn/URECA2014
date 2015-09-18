@@ -28,4 +28,9 @@ public class StopWatch extends Text {
 	public void stop(){
 		running = false;
 	}
+	
+	public void restart() {
+		running = true;
+		playTime = 0;
+	}
 }

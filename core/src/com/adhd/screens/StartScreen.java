@@ -37,6 +37,7 @@ public class StartScreen extends Stage {
 
 	private void linkButton() {
 		startButton.addListener(new InputListener() {
+			@Override
 			public boolean touchDown(InputEvent event, float x, float y,
 					int pointer, int button) {
 				GameWorld.setCurrentScreen(GameWorld.getSelectionScreen());

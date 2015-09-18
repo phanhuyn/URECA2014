@@ -4,16 +4,12 @@ import java.util.Random;
 
 import com.adhd.gameObjects.dragAndDrop.Square;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.huy.adhd.AssetLoader;
 import com.huy.objects.StopWatch;
-import com.huy.objects.Text;
 
-public class CollectTheSquare extends Stage {
-	private Text title;
+public class CollectTheSquare extends Game {
 	private Square[] squares;
 	private Square hole;
 	private Random random;
@@ -22,10 +18,7 @@ public class CollectTheSquare extends Stage {
 	private int ballInHole;
 
 	public CollectTheSquare(FitViewport viewport) {
-		super(viewport);
-		title = new Text("Collect the squares", 250, 550, 50, 1, 1, 1, 1,
-				AssetLoader.getTIMES_SQFont());
-		this.addActor(title);
+		super(viewport, "Collect the squares");
 
 		hole = new Square(400, 200, 200, 200, AssetLoader.getHole());
 		this.addActor(hole);
@@ -39,7 +32,6 @@ public class CollectTheSquare extends Stage {
 						AssetLoader.getSmallSquare());
 			}
 			this.addActor(squares[i]);
-
 		}
 
 		addListener();
@@ -55,16 +47,19 @@ public class CollectTheSquare extends Stage {
 	private void addListener() {
 		for (int i = 0; i < 10; i++) {
 			squares[i].addListener((new DragListener() {
+				@Override
 				public boolean touchDown(InputEvent event, float x, float y,
 						int pointer, int button) {
 					return true;
 				}
 
+				@Override
 				public void touchDragged(InputEvent event, float x, float y,
 						int pointer) {
 					((Square) (event.getTarget())).updatePosition(x, y);
 				}
 
+				@Override
 				public void touchUp(InputEvent event, float x, float y,
 						int pointer, int button) {
 					if (((Square) event.getTarget()).updateInHole(hole))

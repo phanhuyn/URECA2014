@@ -2,6 +2,7 @@ package com.huy.adhd;
 
 import com.adhd.games.CollectTheSquare;
 import com.adhd.games.DragAndDrop;
+import com.adhd.games.FindTheNumber;
 import com.adhd.screens.GameSelectionScreen;
 import com.adhd.screens.StartScreen;
 import com.badlogic.gdx.Gdx;
@@ -18,6 +19,7 @@ public class GameWorld {
 	private static Stage currentScreen;
 	private static Stage dragAndDrop;
 	private static Stage collectTheSquare;
+	private static Stage findTheNumber;
 	
 	private static FitViewport viewport;
 	
@@ -33,6 +35,7 @@ public class GameWorld {
 		//GAMES
 		dragAndDrop = new DragAndDrop(viewport);
 		collectTheSquare = new CollectTheSquare(viewport);
+		findTheNumber = new FindTheNumber(viewport);
 
 		currentScreen = startScreen;
 		Gdx.input.setInputProcessor(currentScreen);
@@ -62,6 +65,10 @@ public class GameWorld {
 	
 	public static Stage getCollectTheSquareGame(){
 		return collectTheSquare;
+	}
+	
+	public static Stage getFindTheNumberGame(){
+		return findTheNumber;
 	}
 	
 	public static FitViewport getViewport(){

@@ -14,6 +14,7 @@ public class AdhdGame extends Game{
 		setScreen(gameScreen);
 	}
 	
+	@Override
 	public void dispose() {
 		
 	}

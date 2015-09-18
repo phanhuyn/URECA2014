@@ -15,7 +15,11 @@ public class AssetLoader {
 	// collect the square
 	private static Texture smallSquare;
 	private static Texture hole;
-
+	// find the number
+	private static Texture numberSquare;
+	// smiley face
+	private static Texture smileyFace;
+	
 	// FONTS
 	private static FreeTypeFontGenerator TIMES_SQ;
 
@@ -33,11 +37,19 @@ public class AssetLoader {
 		// collect the square
 		smallSquare = new Texture(Gdx.files.internal("images/smallWhiteSquare.png"));
 		hole = new Texture(Gdx.files.internal("images/hole.png"));
+		//find the number
+		numberSquare = new Texture (Gdx.files.internal("images/numberSquare.png"));
+		//smiley face
+		smileyFace = new Texture (Gdx.files.internal("images/smileyFace.png"));
 	}
 
 	private static void loadFonts() {
 		TIMES_SQ = new FreeTypeFontGenerator(
 				Gdx.files.internal("fonts/TIMES_SQ.TTF"));
+	}
+	
+	public static Texture getNumberSquare() {
+		return numberSquare;
 	}
 
 	public static Texture getMenuButton1() {
@@ -62,6 +74,10 @@ public class AssetLoader {
 	
 	public static Texture getHole(){
 		return hole;
+	}
+	
+	public static Texture getSmileyFace(){
+		return smileyFace;
 	}
 
 	public static FreeTypeFontGenerator getTIMES_SQFont() {
